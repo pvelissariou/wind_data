@@ -1,0 +1,41 @@
+netcdf Wind_ISALBEL_Regular_HWRF_NWM {
+dimensions:
+        level = 1 ;
+        long = 96 ;
+        lati = 111 ;
+        time = 216 ;
+variables:
+        float longitude(long) ;
+                longitude:long_name = "longitude" ;
+                longitude:units = "degree_east" ;
+                longitude:field = "lon, scalar, series" ;
+        float latitude(lati) ;
+                latitude:long_name = "latitude" ;
+                latitude:units = "degree_north" ;
+                latitude:field = "lat, scalar, series" ;
+        double time(time) ;
+                time:long_name = "julian day (UT)" ;
+                time:units = "days since 1990-01-01 00:00:00" ;
+                time:field = "time, scalar, series" ;
+                time:conventions = "relative julian days with decimal part (as parts of the day )" ;
+                time:axis = "T" ;
+        float uwnd(time, lati, long) ;
+                uwnd:units = "m s-1" ;
+                uwnd:field = "U, scalar, series" ;
+                uwnd:long_name = "eastward_wind" ;
+        float vwnd(time, lati, long) ;
+                vwnd:units = "m s-1" ;
+                vwnd:field = "V, scalar, series" ;
+                vwnd:long_name = "northward_wind" ;
+        float P(time, lati, long) ;
+                P:units = "Pa" ;
+                P:field = "V, scalar, series" ;
+                P:long_name = "Pressure Reduced to MSL" ;
+
+// global attributes:
+                :start_date = "10-Sep-2003 12:00:00" ;
+                :stop_date = "19-Sep-2003 11:00:00" ;
+                :source = "Isabel" ;
+                :field\ type = "1 hr" ;
+                :content = "10-meter wind components and Pressure Reduced to MSL" ;
+}
